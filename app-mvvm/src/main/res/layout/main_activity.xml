@@ -3,7 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="uk.ivanc.archimvvm.viewmodel.MainViewModel"/>
@@ -20,7 +20,8 @@
             android:layout_height="110dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/octocat"/>
+            android:src="@drawable/octocat"
+            app:visibility="@{viewModel.recyclerViewVisibility==View.VISIBLE?View.INVISIBLE:View.VISIBLE}" />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
