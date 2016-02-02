@@ -1,5 +1,6 @@
 package uk.ivanc.archimvvm.model;
 
+import android.databinding.ObservableField;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -7,7 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Repository implements Parcelable {
     public long id;
-    public String name;
+    private String name;
+    public ObservableField<String> repositoryname=new ObservableField<>();
     public String description;
     public int forks;
     public int watchers;
@@ -19,6 +21,16 @@ public class Repository implements Parcelable {
     public boolean fork;
 
     public Repository() {
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+    public void setName(String _val)
+    {
+        name=_val;
+        repositoryname.set(_val);
     }
 
     public boolean hasHomepage() {

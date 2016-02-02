@@ -1,6 +1,8 @@
 package uk.ivanc.archimvvm.view;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +18,7 @@ import uk.ivanc.archimvvm.databinding.MainActivityBinding;
 import uk.ivanc.archimvvm.model.Repository;
 import uk.ivanc.archimvvm.viewmodel.MainViewModel;
 
-public class MainActivity extends AppCompatActivity implements MainViewModel.DataListener {
+public class MainActivity extends AppCompatActivity{
 
     private MainActivityBinding binding;
     private MainViewModel mainViewModel;
@@ -25,10 +27,10 @@ public class MainActivity extends AppCompatActivity implements MainViewModel.Dat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
-        mainViewModel = new MainViewModel(this, this);
+        mainViewModel = new MainViewModel(this,null);
         binding.setViewModel(mainViewModel);
         setSupportActionBar(binding.toolbar);
-        setupRecyclerView(binding.reposRecyclerView);
+        binding.reposRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -36,21 +38,21 @@ public class MainActivity extends AppCompatActivity implements MainViewModel.Dat
         super.onDestroy();
         mainViewModel.destroy();
     }
-
-    @Override
-    public void onRepositoriesChanged(List<Repository> repositories) {
-        RepositoryAdapter adapter =
-                (RepositoryAdapter) binding.reposRecyclerView.getAdapter();
-        adapter.setRepositories(repositories);
-        adapter.notifyDataSetChanged();
-        hideSoftKeyboard();
-    }
-
-    private void setupRecyclerView(RecyclerView recyclerView) {
-        RepositoryAdapter adapter = new RepositoryAdapter();
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
+//
+//    @Override
+//    public void onRepositoriesChanged(List<Repository> repositories) {
+//        RepositoryAdapter adapter =
+//                (RepositoryAdapter) binding.reposRecyclerView.getAdapter();
+//        adapter.setRepositories(repositories);
+//        adapter.notifyDataSetChanged();
+//        hideSoftKeyboard();
+//    }
+//
+//    private void setupRecyclerView(RecyclerView recyclerView) {
+//        RepositoryAdapter adapter = new RepositoryAdapter();
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//    }
 
     private void hideSoftKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

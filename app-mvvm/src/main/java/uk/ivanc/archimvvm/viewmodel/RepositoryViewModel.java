@@ -1,6 +1,7 @@
 package uk.ivanc.archimvvm.viewmodel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
@@ -52,6 +53,10 @@ public class RepositoryViewModel implements ViewModel {
         // (i.e. an activity created) don't work very well with this MVVM pattern.
         // It also makes this class more difficult to test. Hopefully a better solution will be found
         loadFullUser(repository.owner.url);
+
+        Intent intent = new Intent("action.text");
+        intent.putExtra("text","hello world");
+        context.sendBroadcast(intent);
     }
 
     public String getDescription() {

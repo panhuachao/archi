@@ -6,8 +6,11 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="uk.ivanc.archimvvm.viewmodel.ItemRepoViewModel" />
+            name="item"
+            type="uk.ivanc.archimvvm.model.Repository" />
+        <variable
+            name="index"
+            type="int" />
     </data>
 
     <android.support.v7.widget.CardView
@@ -25,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"
-            android:onClick="@{viewModel.onItemClick}"
             android:orientation="vertical">
 
             <TextView
@@ -37,7 +39,7 @@
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
                 android:paddingTop="12dp"
-                android:text="@{viewModel.name}"
+                android:text="@{item.repositoryname}"
                 android:textSize="20sp"
                 tools:text="Repository Name" />
 
@@ -49,7 +51,7 @@
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
                 android:paddingTop="10dp"
-                android:text="@{viewModel.description}"
+                android:text="@{item.description}"
                 android:textColor="@color/secondary_text"
                 android:textSize="14sp"
                 tools:text="This is where the repository description will go" />
@@ -70,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@{viewModel.watchers}"
+                    android:text='@{item.watchers+""}'
                     android:textColor="@color/secondary_text"
                     tools:text="10 \nWatchers" />
 
@@ -80,7 +82,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@{viewModel.stars}"
+                    android:text='@{item.stars+""}'
                     android:textColor="@color/secondary_text"
                     tools:text="230 \nStars" />
 
@@ -90,7 +92,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@{viewModel.forks}"
+                    android:text='@{item.forks+""}'
                     android:textColor="@color/secondary_text"
                     tools:text="0 \nForks" />
 

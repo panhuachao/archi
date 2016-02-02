@@ -57,11 +57,11 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Re
         }
 
         void bindRepository(Repository repository) {
-            if (binding.getViewModel() == null) {
-                binding.setViewModel(new ItemRepoViewModel(itemView.getContext(), repository));
-            } else {
-                binding.getViewModel().setRepository(repository);
-            }
+//            if (binding.getViewModel() == null) {
+//                binding.setViewModel(new ItemRepoViewModel(itemView.getContext(), repository));
+//            } else {
+//                binding.getViewModel().setRepository(repository);
+//            }
         }
     }
 }

@@ -22,7 +22,7 @@ public class ItemRepoViewModel extends BaseObservable implements ViewModel {
     }
 
     public String getName() {
-        return repository.name;
+        return repository.getName();
     }
 
     public String getDescription() {

@@ -40,7 +40,7 @@ public class RepositoryActivity extends AppCompatActivity {
         binding.setViewModel(repositoryViewModel);
 
         //Currently there is no way of setting an activity title using data binding
-        setTitle(repository.name);
+        setTitle(repository.getName());
     }
 
     @Override

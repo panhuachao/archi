@@ -1,0 +1,4 @@
+<resources>
+    <item name="bindEditTextTag" type="id"></item>
+    <item name="bindRecycleView" type="id"></item>
+</resources>

@@ -67,7 +67,7 @@
                 android:onEditorAction="@{viewModel.onSearchAction}"
                 android:textColor="@color/white"
                 android:theme="@style/LightEditText"
-                app:addTextChangedListener="@{viewModel.usernameEditTextWatcher}"/>
+                app:addTextChangedListener="@{viewModel.usernameEditTextWatcher}" />
 
         </RelativeLayout>
 
@@ -105,7 +105,10 @@
             android:paddingTop="@dimen/vertical_margin_half"
             android:scrollbars="vertical"
             app:visibility="@{viewModel.recyclerViewVisibility}"
-            tools:listitem="@layout/item_repo"/>
+            app:emptyView="@{(int)0}"
+            app:itemLayout="@{@layout/item_repo}"
+            app:itemList="@{viewModel.repositoriesList}"
+            app:itemClick="@{viewModel.onClick}"/>
 
     </RelativeLayout>
 
